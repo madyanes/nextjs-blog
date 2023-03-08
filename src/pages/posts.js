@@ -1,4 +1,4 @@
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const apiURL = 'http://localhost:8000/api/posts'
   const response = await fetch(apiURL)
   const data = await response.json()
@@ -15,9 +15,9 @@ export default function Posts(props) {
   return (
     <div>
       { posts.map(post => 
-        <div className="py-5">
+        <div className="py-5" key={ post.id }>
           <p>
-            <a href={ post.url } className="font-semibold">[{ post.title }]</a> { post.content }
+            <strong className="font-semibold">{ post.id }. { post.title }</strong> { post.content }
           </p>
         </div>
       ) }
