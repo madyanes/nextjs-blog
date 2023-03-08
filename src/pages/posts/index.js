@@ -16,7 +16,7 @@ export default function Posts(props) {
 
   return (
     <>
-      <Link href='#' className='bg-green-500 text-sm shadow-lg border-black border-2 font-extrabold inline-block rounded-full text-center px-2'>+ New Post</Link>
+      <Link href='#' className='bg-green-500 text-sm shadow-lg border-black border-2 font-extrabold rounded-full text-center px-2 fixed bottom-5 left-1/2 -translate-x-1/2'>+ New Post</Link>
       { posts.map(post => 
         <div className="pb-3" key={ post.id }>
           <p>
