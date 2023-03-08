@@ -8,18 +8,20 @@ export default function Navbar() {
     posts: '/posts',
     about: '/about',
   }
-  const activeLink = (page) => router.pathname === page ? 'bg-red-300 py-2' : 'py-2'
+  const linkClassName = 'bg-blue-300 text-center font-semibold italic text-sm rounded-full'
+  const activeLink = (page) => router.pathname === page ? 'bg-red-300 ' : ''
+  const activeLinkGeneral = 'py-2 rounded-full'
   return (
     <>
-      <nav className='bg-blue-300 grid grid-cols-3 place-content-stretch mb-5'>
-        <Link href={ href.home } className='text-center font-semibold italic text-sm'>
-          <div className={ activeLink(href.home) }>Home</div>
+      <nav className='grid grid-cols-3 place-content-stretch mb-5 gap-4'>
+        <Link href={ href.home } className={ linkClassName }>
+          <div className={ activeLink(href.home) + activeLinkGeneral }>Home</div>
         </Link>
-        <Link href={ href.posts } className='text-center font-semibold italic text-sm'>
-          <div className={ activeLink(href.posts) }>Posts</div>
+        <Link href={ href.posts } className={ linkClassName }>
+          <div className={ activeLink(href.posts) + activeLinkGeneral }>Posts</div>
         </Link>
-        <Link href={ href.about } className='text-center font-semibold italic text-sm'>
-          <div className={ activeLink(href.about) }>About</div>
+        <Link href={ href.about } className={ linkClassName }>
+          <div className={ activeLink(href.about) + activeLinkGeneral }>About</div>
         </Link>
       </nav>
     </>
