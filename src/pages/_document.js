@@ -7,7 +7,9 @@ export default function Document() {
       <Head />
       <body className="bg-white">
         <Header />
-        <Main />
+        <div className="container mx-auto px-8 lg:px-48 xl:px-96 py-10 bg-green-100">
+          <Main />
+        </div>
         <NextScript />
       </body>
     </Html>
