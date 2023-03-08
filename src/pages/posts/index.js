@@ -15,7 +15,7 @@ export default function Posts(props) {
   return (
     <div>
       { posts.map(post => 
-        <div className="py-5" key={ post.id }>
+        <div className="pb-3" key={ post.id }>
           <p>
             <strong className="font-semibold">{ post.id }. { post.title }</strong> { post.content }
           </p>
