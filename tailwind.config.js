@@ -2,7 +2,23 @@
 module.exports = {
   content: ["./src/**/*.{js,jsx}"],
   theme: {
-    extend: {},
+    extend: {
+      animation: {
+        header: 'header 5s ease infinite',
+      },
+      keyframes: {
+        header: {
+          '0%, 100%': {
+            'background-size': '400% 400%',
+            'background-position': 'left center',
+          },
+          '50%': {
+            'background-size': '400% 400%',
+            'background-position': 'right center',
+          }
+        }
+      }
+    },
   },
   plugins: [require('tailwindcss-font-inter')],
 }
