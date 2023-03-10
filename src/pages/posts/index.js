@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export async function getServerSideProps() {
-  const apiURL = 'http://localhost:8000/api/posts'
+  const apiURL = `${ process.env.NEXT_PUBLIC_API_BACKEND }/api/posts/`
   const response = await fetch(apiURL)
   const data = await response.json()
   return {

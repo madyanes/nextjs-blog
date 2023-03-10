@@ -14,7 +14,7 @@ export default function NewPost() {
 
     const plainFormData = Object.fromEntries(formData.entries())
 
-    const apiURL = 'http://localhost:8000/api/posts/'
+    const apiURL = `${ process.env.NEXT_PUBLIC_API_BACKEND }/api/posts/`
     await fetch(apiURL, {
       method: 'POST',
       headers: {
@@ -26,6 +26,9 @@ export default function NewPost() {
       if (response.status === 201) {
         Router.push('/posts')
       }
+    })
+    .catch(error => {
+      alert(error)
     })
   }
   
