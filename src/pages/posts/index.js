@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
+import Pagination from '@/components/pagination'
 
 export async function getServerSideProps(context) {
   const pageNumber = context.query.page
@@ -27,26 +28,7 @@ export async function getServerSideProps(context) {
 export default function Posts(props) {
   const { postsData } = props
   const posts = postsData.results
-  const nextPage = postsData.next
-  const prevPage = postsData.previous
   const router = useRouter()
-
-  let nextPageLink
-  if (router.query.page) {
-    nextPageLink = router.pathname + '?page=' + (parseInt(router.query.page) + 1)
-  } else {
-    nextPageLink = router.pathname + '?page=2'
-  }
-
-  let prevPageLink
-  if (prevPage) {
-    const prevPageNumber = prevPage.match('[?&]' + 'page' + '=([^&]+)')
-    if (prevPageNumber) {
-      prevPageLink = router.pathname + '?page=' + prevPageNumber[1]
-    } else {
-      prevPageLink = router.pathname + '?page=1'
-    }
-  }
 
   return (
     <>
@@ -62,10 +44,10 @@ export default function Posts(props) {
         </div>
       ) }
       <div>
-        { nextPage && <Link href={ nextPageLink }>Next Page</Link> }
+        <Pagination res={ postsData } direction='next'>Next</Pagination>
       </div>
       <div>
-        { prevPage && <Link href={ prevPageLink }>Previous Page</Link> }
+        <Pagination res={ postsData } direction='prev'>Prev</Pagination>
       </div>
     </>
   )
