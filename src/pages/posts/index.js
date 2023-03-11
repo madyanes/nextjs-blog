@@ -1,10 +1,22 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-export async function getServerSideProps() {
-  const apiURL = `${ process.env.NEXT_PUBLIC_API_BACKEND }/api/posts/`
+export async function getServerSideProps(context) {
+  const pageNumber = context.query.page
+  const apiURL = `${ process.env.NEXT_PUBLIC_API_BACKEND }/api/posts?page=${ pageNumber ? pageNumber : 1 }`
   const response = await fetch(apiURL)
   const data = await response.json()
+
+  // Redirect to `/posts` if the backend isn't recognized the url parameter value of `page`
+  if (!response.ok) {
+    return {
+      redirect: {
+        destination: '/posts',
+        permanent: false
+      }
+    }
+  }
+
   return {
     props: {
       postsData: data,
