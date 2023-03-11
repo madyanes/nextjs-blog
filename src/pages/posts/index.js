@@ -54,7 +54,7 @@ export default function Posts(props) {
       { posts.map(post => 
         <div className="pb-3" key={ post.id }>
           <p className='font-semibold text-lg'>
-            <Link href={'#' + post.id}>{ post.title }</Link>
+            <Link href={ `${ router.pathname }/${ post.id }` }>{ post.title }</Link>
           </p>
           <p>
             { post.content }
