@@ -45,11 +45,17 @@ export default function Posts(props) {
           </p>
         </div>
       ) }
-      <div>
-        <Pagination res={ postsData } direction='next'>Next</Pagination>
-      </div>
-      <div>
-        <Pagination res={ postsData } direction='prev'>Prev</Pagination>
+      <div className='flex gap-4 mb-3'>
+        { postsData.previous && (
+          <div className='bg-cyan-500 w-1/2 rounded-md text-center'>
+            <Pagination className='block my-1' res={ postsData } direction='prev'>Prev</Pagination>
+          </div>
+        )}
+        { postsData.next && (
+          <div className='bg-cyan-500 w-1/2 rounded-md text-center'>
+            <Pagination className='block my-1' res={ postsData } direction='next'>Next</Pagination>
+          </div>
+        )}
       </div>
     </>
   )

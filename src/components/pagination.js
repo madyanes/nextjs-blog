@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-export default function Pagination({ res, direction, children }) {
+export default function Pagination({ res, direction, className, children }) {
   const router = useRouter()
 
   if (direction === 'next') {
@@ -14,7 +14,7 @@ export default function Pagination({ res, direction, children }) {
         nextPageLink = router.pathname + '?page=2'
       }
       return (
-        <Link href={ nextPageLink }>
+        <Link className={ className } href={ nextPageLink }>
           { children }
         </Link> 
       )
@@ -31,7 +31,7 @@ export default function Pagination({ res, direction, children }) {
         prevPageLink = router.pathname + '?page=1'
       }
       return (
-        <Link href={ prevPageLink }>
+        <Link className={ className } href={ prevPageLink }>
           { children }
         </Link> 
       )
