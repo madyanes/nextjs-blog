@@ -4,7 +4,7 @@ const headerAnimation = 'animate-header bg-gradient-to-r from-teal-500 via-purpl
 export default function Header() {
   return (
     <>
-      <div className="bg-gray-200">
+      <div className="bg-white dark:bg-black">
         <div className={`${ headerAnimation } text-center text-5xl font-bold bg-clip-text text-transparent py-2`}>
           &lt;ian&apos;s weblog /&gt;
         </div>
