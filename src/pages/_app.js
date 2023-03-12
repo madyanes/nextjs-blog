@@ -15,7 +15,7 @@ export default function App({ Component, pageProps }) {
           <div className="">
             <Navbar />
           </div>
-          <div className="md:ml-5">
+          <div className="grow md:ml-5">
             <Component {...pageProps} />
           </div>
         </div>
