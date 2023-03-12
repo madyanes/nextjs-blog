@@ -15,7 +15,7 @@ export default function Navbar() {
     <>
       <nav className='flex md:flex-col mb-5 gap-4'>
         <Link href={ href.home } className={ `${linkClassName} grow` }>
-          <div className={ activeLink(href.home) + activeLinkGeneral }>Home</div>
+          <div className={ `${activeLink(href.home)} + ${activeLinkGeneral} md:px-16` }>Home</div>
         </Link>
         <Link href={ href.posts } className={ `${linkClassName} grow` }>
           <div className={ activeLink(href.posts) + activeLinkGeneral }>Posts</div>

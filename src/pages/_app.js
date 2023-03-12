@@ -11,9 +11,13 @@ export default function App({ Component, pageProps }) {
     <>
       <div className={ `${inter.className} ` }>
         <Header />
-        <div className="px-8 pt-5 bg-green-100">
-          <Navbar />
-          <Component {...pageProps} />
+        <div className="md:flex px-8 pt-5 bg-green-100">
+          <div className="">
+            <Navbar />
+          </div>
+          <div className="md:ml-5">
+            <Component {...pageProps} />
+          </div>
         </div>
       </div>
     </>
