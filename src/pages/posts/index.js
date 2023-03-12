@@ -34,7 +34,7 @@ export default function Posts(props) {
     <>
       <Link href='/posts/new' className='bg-green-500 text-sm shadow-lg border-black border-2 font-extrabold rounded-full text-center px-2 fixed bottom-5 left-1/2 -translate-x-1/2'>+ New Post</Link>
       { posts.map(post => 
-        <div className="bg-gray-100 px-4 py-5 mb-1 rounded-lg border-slate-200 border-2" key={ post.id }>
+        <div className="bg-white px-4 py-5 mb-1 rounded-lg border-slate-200 border-2" key={ post.id }>
           <p className='font-semibold text-lg'>
             <Link href={ `${ router.pathname }/${ post.id }` }>{ post.title }</Link>
           </p>
