@@ -13,7 +13,7 @@ export default function Navbar() {
   const activeLinkGeneral = 'py-2 rounded-full'
   return (
     <>
-      <nav className='flex mb-5 gap-4'>
+      <nav className='flex md:flex-col mb-5 gap-4'>
         <Link href={ href.home } className={ `${linkClassName} grow` }>
           <div className={ activeLink(href.home) + activeLinkGeneral }>Home</div>
         </Link>
