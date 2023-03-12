@@ -8,8 +8,8 @@ export default function Navbar() {
     posts: '/posts',
     about: '/about',
   }
-  const linkClassName = 'bg-blue-300 text-center font-semibold italic text-sm rounded-full'
-  const activeLink = (page) => router.pathname === page ? 'bg-red-300 ' : ''
+  const linkClassName = 'bg-blue-300 text-center font-semibold italic text-sm rounded-full sm:rounded'
+  const activeLink = (page) => router.pathname === page ? 'bg-red-300 sm:rounded ' : ''
   const activeLinkGeneral = 'py-2 rounded-full'
   return (
     <>
