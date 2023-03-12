@@ -9,9 +9,9 @@ const inter = Inter({ subsets: ['latin'] })
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <div className={ inter.className }>
+      <div className={ `${inter.className} ` }>
         <Header />
-        <div className="container mx-auto px-8 lg:px-48 xl:px-96 py-10 bg-green-100">
+        <div className="px-8 pt-5 bg-green-100">
           <Navbar />
           <Component {...pageProps} />
         </div>
