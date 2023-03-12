@@ -13,15 +13,15 @@ export default function Navbar() {
   const activeLinkGeneral = 'py-2 rounded-full'
   return (
     <>
-      <nav className='flex md:flex-col mb-5 gap-4'>
-        <Link href={ href.home } className={ `${linkClassName} grow` }>
-          <div className={ `${activeLink(href.home)} + ${activeLinkGeneral} md:px-16` }>Home</div>
+      <nav className='flex md:flex-col md:w-1/2 mb-5 gap-4'>
+        <Link href={ href.home } className={ `${linkClassName} grow md:w-28` }>
+          <div className={ `${activeLink(href.home)} ${activeLinkGeneral}` }>Home</div>
         </Link>
-        <Link href={ href.posts } className={ `${linkClassName} grow` }>
-          <div className={ activeLink(href.posts) + activeLinkGeneral }>Posts</div>
+        <Link href={ href.posts } className={ `${linkClassName} grow md:w-28` }>
+          <div className={ `${activeLink(href.posts)} ${activeLinkGeneral}` }>Posts</div>
         </Link>
-        <Link href={ href.about } className={ `${linkClassName} grow` }>
-          <div className={ activeLink(href.about) + activeLinkGeneral }>About</div>
+        <Link href={ href.about } className={ `${linkClassName} grow md:w-28` }>
+          <div className={ `${activeLink(href.about)} ${activeLinkGeneral}` }>About</div>
         </Link>
       </nav>
     </>
