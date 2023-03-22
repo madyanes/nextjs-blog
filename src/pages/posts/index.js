@@ -1,3 +1,4 @@
+import Head from 'next/head'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
@@ -48,6 +49,11 @@ export default function Posts(props) {
 
   return (
     <>
+      <Head>
+        <title>Ian&apos;s Web-Log | Blog posts</title>
+        <meta name="description" content="Ian's Blog" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
       <Link href='/posts/new' className='z-10 bg-green-500 text-sm shadow-lg border-black border-2 font-extrabold rounded-full text-center px-2 fixed bottom-5 left-1/2 -translate-x-1/2'>+ New Post</Link>
       { postList.map(post => 
         <div className="bg-white drop-shadow-md hover:drop-shadow-xl dark:bg-black px-4 py-5 mb-1 rounded-lg" key={ post.id }>

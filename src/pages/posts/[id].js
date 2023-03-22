@@ -1,4 +1,4 @@
-import { Router } from "next/router"
+import Head from "next/head"
 import { useState } from "react"
 
 export async function getServerSideProps({ params }) {
@@ -54,20 +54,27 @@ export default function PostEdit(props) {
   }
 
   return (
-    <div>
-      <form onSubmit={ updatePost }>
-        <label htmlFor="title">Title</label>
-        <input name="title" type="text" className="block" value={ title } onChange={ e => { setTitle(e.target.value) } } />
-        { validation.title && (
-          <p className="text-red-500">{ validation.title }</p>
-        ) }
-        <label htmlFor="content">Content</label>
-        <input name="content" type="text" className="block" value={ content } onChange={ e => { setContent(e.target.value) } } />
-        { validation.content && (
-          <p className="text-red-500">{ validation.content }</p>
-        ) }
-        <button>Save Changes</button>
-      </form>
-    </div>
+    <>
+      <Head>
+        <title>Ian&apos;s Web-Log | Edit post</title>
+        <meta name="description" content="Ian's Blog" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <div>
+        <form onSubmit={ updatePost }>
+          <label htmlFor="title">Title</label>
+          <input name="title" type="text" className="block" value={ title } onChange={ e => { setTitle(e.target.value) } } />
+          { validation.title && (
+            <p className="text-red-500">{ validation.title }</p>
+          ) }
+          <label htmlFor="content">Content</label>
+          <input name="content" type="text" className="block" value={ content } onChange={ e => { setContent(e.target.value) } } />
+          { validation.content && (
+            <p className="text-red-500">{ validation.content }</p>
+          ) }
+          <button>Save Changes</button>
+        </form>
+      </div>
+    </>
   )
 }
