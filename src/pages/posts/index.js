@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/router'
+import parse from 'html-react-parser'
 import Pagination from '@/components/pagination'
 import callAPI from '@/helpers/callAPI'
 
@@ -62,9 +63,9 @@ export default function Posts(props) {
           <p className='font-semibold text-lg'>
             <Link href={ `${ router.pathname }/${ post.id }` }>{ post.title }</Link>
           </p>
-          <p>
-            { post.content }
-          </p>
+          <div>
+            { parse(post.content) }
+          </div>
         </div>
       ) }
       <div className='flex gap-4 mb-3'>
