@@ -1,11 +1,19 @@
 import Head from 'next/head'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Router from 'next/router'
+import CKeditor from '@/components/ckeditor'
 
 export default function NewPost() {
   const [title, setTitle] = useState('')
   const [content, setContent] = useState('')
   const [validation, setValidation] = useState({})
+
+  // CKeditor State
+  const [editorLoaded, setEditorLoaded] = useState(false)
+
+  useEffect(() => {
+    setEditorLoaded(true)
+  }, [])
 
   const storePost = async (event) => {
     event.preventDefault()
@@ -55,7 +63,14 @@ export default function NewPost() {
             <p className="text-red-500">{ validation.title }</p>
           ) }
           <label htmlFor="content">Content</label>
-          <input type="text" name="content" id="content" onChange={ e => setContent(e.target.value) } className="block" />
+          <CKeditor 
+            id="content"
+            name='description'
+            onChange={ (data) => {
+              setContent(data)
+            }}
+            editorLoaded={editorLoaded}
+          />
           { validation.content && (
             <p className="text-red-500">{ validation.content }</p>
           ) }

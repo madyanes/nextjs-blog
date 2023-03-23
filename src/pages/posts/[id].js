@@ -1,5 +1,6 @@
 import Head from "next/head"
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import CKeditor from "@/components/ckeditor"
 
 export async function getServerSideProps({ params }) {
   const apiURL = `${ process.env.NEXT_PUBLIC_API_BACKEND }/api/posts/${ params.id }/`
@@ -20,6 +21,13 @@ export default function PostEdit(props) {
   const [title, setTitle] = useState(post.title)
   const [content, setContent] = useState(post.content)
   const [validation, setValidation] = useState({})
+  
+  // CKeditor State
+  const [editorLoaded, setEditorLoaded] = useState(false)
+
+  useEffect(() => {
+    setEditorLoaded(true)
+  }, [])
   
   const updatePost = async (e) => {
     e.preventDefault()
@@ -68,7 +76,15 @@ export default function PostEdit(props) {
             <p className="text-red-500">{ validation.title }</p>
           ) }
           <label htmlFor="content">Content</label>
-          <input name="content" type="text" className="block" value={ content } onChange={ e => { setContent(e.target.value) } } />
+          <CKeditor 
+            id="content"
+            name='description'
+            value={ content }
+            onChange={ (data) => {
+              setContent(data)
+            }}
+            editorLoaded={editorLoaded}
+          />
           { validation.content && (
             <p className="text-red-500">{ validation.content }</p>
           ) }
